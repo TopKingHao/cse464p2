@@ -1,8 +1,5 @@
-//package test.MyGraphTest;
-
 import org.junit.Assert;
 import org.junit.Test;
-
 
 import java.io.File;
 import java.io.IOException;
@@ -83,7 +80,6 @@ public class MyGraphTest {
                 myGraph.toString(Boolean.TRUE)
         );
     }
-
 
 
     @Test
