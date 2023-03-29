@@ -163,5 +163,43 @@ public class MyGraph {
     }
 
 
+    public Path GraphSearchDFS(String src, String dst) {
+        if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
+            return null;
+        }
+
+        Set<String> visitedNodes = new HashSet<>();
+        Map<String, String> previousNodes = new HashMap<>();
+
+        if (dfsHelper(src, dst, visitedNodes, previousNodes)) {
+            Path path = new Path();
+            String pathNode = dst;
+            while (pathNode != null) {
+                path.addNode(pathNode);
+                pathNode = previousNodes.get(pathNode);
+            }
+            Collections.reverse(path.getNodes());
+            return path;
+        }
+
+        return null;
+    }
+
+    private boolean dfsHelper(String currentNode, String dst, Set<String> visitedNodes, Map<String, String> previousNodes) {
+        visitedNodes.add(currentNode);
+        if (currentNode.equals(dst)) {
+            return true;
+        }
+        for (DefaultEdge edge : myGraph.edgesOf(currentNode)) {
+            String neighbor = myGraph.getEdgeTarget(edge);
+            if (!visitedNodes.contains(neighbor)) {
+                previousNodes.put(neighbor, currentNode);
+                if (dfsHelper(neighbor, dst, visitedNodes, previousNodes)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }
