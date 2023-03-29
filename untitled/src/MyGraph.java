@@ -12,6 +12,8 @@ import org.jgrapht.Graph;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.*;
+import java.util.List;
 
 public class MyGraph {
     Graph <String, DefaultEdge> myGraph;
@@ -100,6 +102,65 @@ public class MyGraph {
         }
     }
 
+    public static class Path {
+        private List<String> nodes;
+
+        public Path() {
+            nodes = new LinkedList<>();
+        }
+
+        public void addNode(String node) {
+            nodes.add(node);
+        }
+
+        public List<String> getNodes() {
+            return nodes;
+        }
+
+        @Override
+        public String toString() {
+            return String.join(" -> ", nodes);
+        }
+    }
+
+    public Path GraphSearch(String src, String dst) {
+        if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
+            return null;
+        }
+
+        Queue<String> queue = new LinkedList<>();
+        Map<String, String> previousNodes = new HashMap<>();
+        Set<String> visitedNodes = new HashSet<>();
+
+        queue.add(src);
+
+        while (!queue.isEmpty()) {
+            String currentNode = queue.poll();
+
+            if (currentNode.equals(dst)) {
+                Path path = new Path();
+                String pathNode = dst;
+                while (pathNode != null) {
+                    path.addNode(pathNode);
+                    pathNode = previousNodes.get(pathNode);
+                }
+                Collections.reverse(path.getNodes());
+                return path;
+            }
+
+            visitedNodes.add(currentNode);
+
+            for (DefaultEdge edge : myGraph.edgesOf(currentNode)) {
+                String neighbor = myGraph.getEdgeTarget(edge);
+                if (!visitedNodes.contains(neighbor) && !queue.contains(neighbor)) {
+                    previousNodes.put(neighbor, currentNode);
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        return null;
+    }
 
 
 
