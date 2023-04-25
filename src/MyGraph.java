@@ -123,7 +123,7 @@ public class MyGraph {
         }
     }
 
-    public Path GraphSearch(String src, String dst) {
+    public Path graphSearchBFS(String src, String dst) {
         if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
             return null;
         }
@@ -163,7 +163,7 @@ public class MyGraph {
     }
 
 
-    public Path GraphSearchDFS(String src, String dst) {
+    public Path graphSearchDFS(String src, String dst) {
         if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
             return null;
         }
