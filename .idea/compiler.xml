@@ -10,12 +10,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="graphviz-java" target="1.8" />
-      <module name="graphviz-java-all-j2v8" target="1.8" />
-      <module name="graphviz-java-min-deps" target="1.8" />
+      <module name="graphviz-java" target="1.5" />
+      <module name="graphviz-java-all-j2v8" target="1.5" />
+      <module name="graphviz-java-min-deps" target="1.5" />
       <module name="graphviz-java-parent" target="1.5" />
-      <module name="graphviz-kotlin" target="1.8" />
-      <module name="graphviz-rough" target="1.8" />
+      <module name="graphviz-kotlin" target="1.5" />
+      <module name="graphviz-rough" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

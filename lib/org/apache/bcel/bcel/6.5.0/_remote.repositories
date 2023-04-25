@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Apr 25 21:24:19 CST 2023
+bcel-6.5.0-sources.jar>central=
+bcel-6.5.0.jar>central=
+bcel-6.5.0.pom>central=

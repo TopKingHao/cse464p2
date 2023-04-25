@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Apr 25 21:24:07 CST 2023
+objenesis-2.1-sources.jar>central=
+objenesis-2.1.jar>central=
+objenesis-2.1.pom>central=

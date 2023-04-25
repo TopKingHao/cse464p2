@@ -4,22 +4,22 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/pom.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/graphviz-java-all-j2v8/pom.xml" />
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/graphviz-java-min-deps/pom.xml" />
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/graphviz-java/pom.xml" />
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/graphviz-kotlin/pom.xml" />
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/graphviz-rough/pom.xml" />
-        <option value="$PROJECT_DIR$/untitled/graphviz-java/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/graphviz-java-all-j2v8/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/graphviz-java-min-deps/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/graphviz-java/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/graphviz-kotlin/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/graphviz-rough/pom.xml" />
+        <option value="$PROJECT_DIR$/graphviz-java/pom.xml" />
       </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/untitled/out" />
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
