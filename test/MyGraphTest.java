@@ -8,7 +8,7 @@ public class MyGraphTest {
     @Test
     public void featureOneTest() throws IOException {
         MyGraph myGraph = new MyGraph();
-        myGraph.parseGraph("untitled/demo.dot");
+        myGraph.parseGraph("input2.dot");
         // Test parseGraph()
 
         Assert.assertEquals(
