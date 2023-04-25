@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Apr 25 21:24:30 CST 2023
+checkstyle-6.19-sources.jar>central=
+checkstyle-6.19.jar>central=
+checkstyle-6.19.pom>central=

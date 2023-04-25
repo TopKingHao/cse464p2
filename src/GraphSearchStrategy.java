@@ -1,8 +1,3 @@
-import org.jgrapht.Graph;
-import org.jgrapht.graph.DefaultEdge;
-
-import java.util.*;
-
 public class GraphSearchStrategy
 {
     MyGraph myGraph;

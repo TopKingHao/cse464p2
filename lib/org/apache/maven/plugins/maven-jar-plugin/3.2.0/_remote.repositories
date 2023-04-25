@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Apr 25 21:25:27 CST 2023
+maven-jar-plugin-3.2.0.jar>jcenter=
+maven-jar-plugin-3.2.0.pom>jcenter=

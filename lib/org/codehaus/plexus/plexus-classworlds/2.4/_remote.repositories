@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Apr 25 21:24:25 CST 2023
+plexus-classworlds-2.4.jar>jcenter=
+plexus-classworlds-2.4.pom>jcenter=

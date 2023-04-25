@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>guru.nidi</groupId>
+        <artifactId>snippets</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>snippets-core</artifactId>
+
+    <name>${project.artifactId}</name>
+    <description>The core of snippets.</description>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>guru.nidi</groupId>
+                <artifactId>code-assert-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>assert</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>guru.nidi</groupId>
+            <artifactId>code-assert</artifactId>
+        </dependency>
+    </dependencies>
+</project>

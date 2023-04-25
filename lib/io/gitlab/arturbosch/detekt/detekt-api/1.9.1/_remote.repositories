@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Apr 25 21:24:08 CST 2023
+detekt-api-1.9.1-sources.jar>central=
+detekt-api-1.9.1.jar>central=
+detekt-api-1.9.1.pom>central=
