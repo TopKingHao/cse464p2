@@ -122,9 +122,8 @@ public class MyGraph {
     }
 
     public Path graphSearchBFS(String src, String dst) {
-        if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
-            return null;
-        }
+        if (judgeSearchProblem(src, dst)) return null;
+
 
         Queue<String> queue = new LinkedList<>();
         Map<String, String> previousNodes = new HashMap<>();
@@ -155,9 +154,7 @@ public class MyGraph {
 
 
     public Path graphSearchDFS(String src, String dst) {
-        if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
-            return null;
-        }
+        if (judgeSearchProblem(src, dst)) return null;
 
         Set<String> visitedNodes = new HashSet<>();
         Map<String, String> previousNodes = new HashMap<>();
@@ -167,6 +164,13 @@ public class MyGraph {
         }
 
         return null;
+    }
+
+    private boolean judgeSearchProblem(String src, String dst) {
+        if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
+            return true;
+        }
+        return false;
     }
 
     private static Path getPath(String dst, Map<String, String> previousNodes) {
