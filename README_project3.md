@@ -39,9 +39,35 @@ Generally, both BFS and DFS can be done in 5 steps:
 4. Check all the node adjective to the node and put them into the data structure.
 5. Go back to step 3.
 What's difference between BFS and DFS is the data structure. So I can abstract a 
-class called GraphSearch, which contains the basic loop. And override some functions 
+class called GraphSearch, which contains the basic flow. And override some functions 
 which contain the operations about the data structure to implement two different algorithms.
 
-    link:
+When we need to solve the problem by DFS, we can construct the class named GraphSearchDFS
+, and then the problem can be solved by DFS. Instead, when we need to solve the problem
+by BFS, we can construct the class called GraphSearchBFS.
+   
+   link:
 
 ### 3 Strategy pattern
+To apply the strategy pattern based on the template pattern before, I need to firstly
+extract the code in GraphSearch class to a new class named SearchStrategy, and the 
+GraphSearch class only need to contain the function of reading the graph and choosing 
+different strategy. To keep compatible with the template pattern refactoring 
+commit, I created a new class named GraphSearchStrategy, which will be used 
+instead when solve the problem in "strategy" way. The GraphSearchStrategy class
+will init the searchStrategy when constructed, and when the graphSearch function is called, the graph and the src and dst will be passed
+to the searchStrategy to solve the problem.
+
+For SearchStrategy class, it can reuse the code in the GraphSearch class before. So 
+different SearchStrategy class only need to override some operations to implement.
+
+When we need to solve the problem by DFS, we can construct the GraphSearch class and 
+pass a strategy class named SearchStrategyDFS. Instead, when we need to solve the 
+problem by BFS, we can construct the GraphSearch class and pass a strategy class 
+named SearchStrategyBFS. Demo can be seen below:
+```java
+GraphSearchStrategy graphSearchSolution = new GraphSearchStrategy(new SearchStrategyDFS());
+GraphSearchStrategy graphSearchSolution = new GraphSearchStrategy(new SearchStrategyBFS());
+```
+
+### 4
