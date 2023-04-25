@@ -50,7 +50,6 @@ public class MyGraph {
         {
             System.out.println(e.toString());
         }
-
     }
 
     public void addNode(String label) {
@@ -94,7 +93,6 @@ public class MyGraph {
         BufferedImage image = mxCellRenderer.createBufferedImage(mxGraph, null, 1, Color.WHITE, true, null);
         try {
             ImageIO.write(image, format, new File(path));
-
         }
         catch(Exception e)
         {
@@ -138,14 +136,7 @@ public class MyGraph {
             String currentNode = queue.poll();
 
             if (currentNode.equals(dst)) {
-                Path path = new Path();
-                String pathNode = dst;
-                while (pathNode != null) {
-                    path.addNode(pathNode);
-                    pathNode = previousNodes.get(pathNode);
-                }
-                Collections.reverse(path.getNodes());
-                return path;
+                return getPath(dst, previousNodes);
             }
 
             visitedNodes.add(currentNode);
@@ -172,17 +163,21 @@ public class MyGraph {
         Map<String, String> previousNodes = new HashMap<>();
 
         if (dfsHelper(src, dst, visitedNodes, previousNodes)) {
-            Path path = new Path();
-            String pathNode = dst;
-            while (pathNode != null) {
-                path.addNode(pathNode);
-                pathNode = previousNodes.get(pathNode);
-            }
-            Collections.reverse(path.getNodes());
-            return path;
+            return getPath(dst, previousNodes);
         }
 
         return null;
+    }
+
+    private static Path getPath(String dst, Map<String, String> previousNodes) {
+        Path path = new Path();
+        String pathNode = dst;
+        while (pathNode != null) {
+            path.addNode(pathNode);
+            pathNode = previousNodes.get(pathNode);
+        }
+        Collections.reverse(path.getNodes());
+        return path;
     }
 
     private boolean dfsHelper(String currentNode, String dst, Set<String> visitedNodes, Map<String, String> previousNodes) {
