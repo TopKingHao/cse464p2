@@ -1,4 +1,9 @@
+### 0 Basic Info
+
+GitHub repo link:[TopKingHao/cse464p2 (github.com)](https://github.com/TopKingHao/cse464p2)
+
 ### 1 Refactoring
+
 1. I reorganize the whole project, which used to have two projects in my folder and 
    make other people confused about it. So I move the source code out of the untitled 
    folder and remove the untitled folder. I also move test folder out of src folder, 
@@ -70,7 +75,10 @@ GraphSearchStrategy graphSearchSolution = new GraphSearchStrategy(new SearchStra
 GraphSearchStrategy graphSearchSolution = new GraphSearchStrategy(new SearchStrategyBFS());
 ```
 
+link:https://github.com/TopKingHao/cse464p2/commit/65408098d3798bb9401de553dae820fe37e505d8
+
 ### 4 Instructions
+
 You can run the code using the following program or run it directly in the GraphSearchTest.java file,
 which contains the unite test of the code.
 
