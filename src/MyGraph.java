@@ -120,83 +120,16 @@ public class MyGraph {
         }
     }
 
-    public Path graphSearchBFS(String src, String dst) {
-        if (judgeSearchProblem(src, dst)) return null;
-
-        Queue<String> queue = new LinkedList<>();
-        Map<String, String> previousNodes = new HashMap<>();
-        Set<String> visitedNodes = new HashSet<>();
-
-        queue.add(src);
-
-        while (!queue.isEmpty()) {
-            String currentNode = queue.poll();
-
-            if (currentNode.equals(dst)) {
-                return getPath(dst, previousNodes);
-            }
-
-            visitedNodes.add(currentNode);
-
-            for (DefaultEdge edge : myGraph.edgesOf(currentNode)) {
-                String neighbor = myGraph.getEdgeTarget(edge);
-                if (!visitedNodes.contains(neighbor) && !queue.contains(neighbor)) {
-                    previousNodes.put(neighbor, currentNode);
-                    queue.add(neighbor);
-                }
-            }
+    public boolean pathExist(Path path){
+        List<String> node_list = path.getNodes();
+        for(int i = 0; i < node_list.size()-1; i++) {
+            String node = node_list.get(i);
+            String next_node = node_list.get(i+1);
+            if(!myGraph.containsVertex(node))
+                return false;
+            if(!myGraph.containsEdge(node, next_node))
+                return false;
         }
-
-        return null;
+        return true;
     }
-
-
-    public Path graphSearchDFS(String src, String dst) {
-        if (judgeSearchProblem(src, dst)) return null;
-
-        Set<String> visitedNodes = new HashSet<>();
-        Map<String, String> previousNodes = new HashMap<>();
-
-        if (dfsHelper(src, dst, visitedNodes, previousNodes)) {
-            return getPath(dst, previousNodes);
-        }
-
-        return null;
-    }
-
-    private boolean judgeSearchProblem(String src, String dst) {
-        if (src == null || dst == null || !myGraph.containsVertex(src) || !myGraph.containsVertex(dst)) {
-            return true;
-        }
-        return false;
-    }
-
-    private static Path getPath(String dst, Map<String, String> previousNodes) {
-        Path path = new Path();
-        String pathNode = dst;
-        while (pathNode != null) {
-            path.addNode(pathNode);
-            pathNode = previousNodes.get(pathNode);
-        }
-        Collections.reverse(path.getNodes());
-        return path;
-    }
-
-    private boolean dfsHelper(String currentNode, String dst, Set<String> visitedNodes, Map<String, String> previousNodes) {
-        visitedNodes.add(currentNode);
-        if (currentNode.equals(dst)) {
-            return true;
-        }
-        for (DefaultEdge edge : myGraph.edgesOf(currentNode)) {
-            String neighbor = myGraph.getEdgeTarget(edge);
-            if (!visitedNodes.contains(neighbor)) {
-                previousNodes.put(neighbor, currentNode);
-                if (dfsHelper(neighbor, dst, visitedNodes, previousNodes)) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-
 }

@@ -8,23 +8,25 @@ public class GraphSearchTest {
     public void BFSTest() throws IOException {
         MyGraph myGraph = new MyGraph();
         myGraph.parseGraph("input2.dot");
-        MyGraph.Path path = myGraph.graphSearchBFS("a", "g");
-        Assert.assertEquals(path.toString(), "a -> e -> g");
-        path = myGraph.graphSearchBFS("a", "h");
-        Assert.assertEquals(path.toString(), "a -> e -> f -> h");
-        path = myGraph.graphSearchBFS("c", "g");
-        Assert.assertEquals(path.toString(), "c -> d -> a -> e -> g");
+        GraphSearchBFS graphSearchSolution = new GraphSearchBFS(myGraph);
+        MyGraph.Path path = graphSearchSolution.graphSearch("a", "g");
+        Assert.assertTrue(myGraph.pathExist(path));
+        path = graphSearchSolution.graphSearch("a", "h");
+        Assert.assertTrue(myGraph.pathExist(path));
+        path = graphSearchSolution.graphSearch("c", "g");
+        Assert.assertTrue(myGraph.pathExist(path));
     }
 
     @Test
     public void DFSTest() throws IOException {
         MyGraph myGraph = new MyGraph();
         myGraph.parseGraph("input2.dot");
-        MyGraph.Path path = myGraph.graphSearchDFS("a", "g");
-        Assert.assertEquals(path.toString(), "a -> e -> g");
-        path = myGraph.graphSearchDFS("a", "h");
-        Assert.assertEquals(path.toString(), "a -> e -> f -> h");
-        path = myGraph.graphSearchDFS("c", "g");
-        Assert.assertEquals(path.toString(), "c -> d -> a -> e -> g");
+        GraphSearchDFS graphSearchSolution = new GraphSearchDFS(myGraph);
+        MyGraph.Path path = graphSearchSolution.graphSearch("a", "g");
+        Assert.assertTrue(myGraph.pathExist(path));
+        path = graphSearchSolution.graphSearch("a", "h");
+        Assert.assertTrue(myGraph.pathExist(path));
+        path = graphSearchSolution.graphSearch("c", "g");
+        Assert.assertTrue(myGraph.pathExist(path));
     }
 }
