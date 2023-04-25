@@ -1,4 +1,3 @@
-import org.jgrapht.*;
 import org.jgrapht.graph.*;
 import org.jgrapht.nio.dot.DOTImporter;
 import org.jgrapht.nio.dot.DOTExporter;
@@ -12,6 +11,7 @@ import org.jgrapht.Graph;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class MyGraph {
          String s= "Number of nodes: " + myGraph.vertexSet().size() + "\n" +
                 "Label of the nodes: " + myGraph.vertexSet() + "\n" +
                 "Number of edges: " + myGraph.edgeSet().size() + "\n" +
-                "Nodes and edge directions: " + (myGraph.edgeSet() + "").replace(":", "->");
+                "Nodes and edge directions: " + (myGraph.edgeSet().toString()).replace(":", "->");
          if (ifPrint) {
              System.out.println(s);
          }
@@ -41,14 +41,14 @@ public class MyGraph {
     public void outputGraph(String filepath) {
         try {
             OutputStream f = new FileOutputStream(filepath);
-            OutputStreamWriter writer = new OutputStreamWriter(f, "UTF-8");
+            OutputStreamWriter writer = new OutputStreamWriter(f, StandardCharsets.UTF_8);
             writer.append(this.toString(Boolean.FALSE));
             writer.close();
             f.close();
         }
         catch(Exception e)
         {
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
     }
 
@@ -96,7 +96,7 @@ public class MyGraph {
         }
         catch(Exception e)
         {
-            System.out.println(e);
+            e.printStackTrace();
         }
     }
 
@@ -115,7 +115,6 @@ public class MyGraph {
             return nodes;
         }
 
-        @Override
         public String toString() {
             return String.join(" -> ", nodes);
         }
@@ -123,7 +122,6 @@ public class MyGraph {
 
     public Path graphSearchBFS(String src, String dst) {
         if (judgeSearchProblem(src, dst)) return null;
-
 
         Queue<String> queue = new LinkedList<>();
         Map<String, String> previousNodes = new HashMap<>();
